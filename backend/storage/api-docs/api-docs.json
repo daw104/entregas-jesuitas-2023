@@ -1,0 +1,98 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "API changeorg",
+        "version": "1.0"
+    },
+    "servers": [
+        {
+            "url": "http://swagger.local"
+        }
+    ],
+    "paths": {
+        "/api/store": {
+            "post": {
+                "summary": "Guardar una peticion",
+                "operationId": "79c9b1916fa7c964ca94cda1abac2cdb",
+                "responses": {
+                    "200": {
+                        "description": "Guardar una peticiones"
+                    },
+                    "default": {
+                        "description": "Ha ocurrido un error."
+                    }
+                }
+            }
+        },
+        "/api/petitions": {
+            "get": {
+                "summary": "Mostra todas las peticiones",
+                "operationId": "94865a1209c08082b18510f1e100a306",
+                "responses": {
+                    "200": {
+                        "description": "Mostrar todas las peticiones"
+                    },
+                    "default": {
+                        "description": "Ha ocurrido un error."
+                    }
+                }
+            }
+        },
+        "/api/mispeticiones": {
+            "get": {
+                "summary": "Mostra todas las peticiones",
+                "operationId": "b5a64a6ad8c9f7fd7425b436b261091c",
+                "responses": {
+                    "200": {
+                        "description": "Mostrar todas las peticiones"
+                    },
+                    "default": {
+                        "description": "Ha ocurrido un error."
+                    }
+                }
+            }
+        },
+        "/api/petition/{id}": {
+            "delete": {
+                "summary": "Eliminar una peticion",
+                "operationId": "d8897ffd352435bb098955118a6a8516",
+                "responses": {
+                    "200": {
+                        "description": "Elimina una peticion"
+                    },
+                    "default": {
+                        "description": "Ha ocurrido un error."
+                    }
+                }
+            }
+        },
+        "/api/peticiones/cambiarEstado/{id}": {
+            "get": {
+                "summary": "Cambiar el estado de una peticion",
+                "operationId": "64e802517ef06cc61c88bab9a0f7986c",
+                "responses": {
+                    "200": {
+                        "description": "Cambia el estado de una peticion"
+                    },
+                    "default": {
+                        "description": "Ha ocurrido un error."
+                    }
+                }
+            }
+        },
+        "/api/register": {
+            "get": {
+                "summary": "Registrar usuarios",
+                "operationId": "88b78c6e20459f2e2d6f86c73330ab88",
+                "responses": {
+                    "200": {
+                        "description": "Registra un usuario"
+                    },
+                    "default": {
+                        "description": "Ha ocurrido un error."
+                    }
+                }
+            }
+        }
+    }
+}

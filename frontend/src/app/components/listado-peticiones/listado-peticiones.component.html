@@ -1,0 +1,20 @@
+
+<h5 class="text-center">Estas son las peticiones</h5>
+
+<div class="conrainer pt-5">
+    <div class="row pt-5">
+        <div *ngFor="let petition of Peticion" class="col-4 pt-5">
+
+          <div  class="card" style="width: 18rem;">
+            <img src="{{ petition.image }}" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">{{ petition.title }}</h5>
+              <p class="card-text">Descripcion:  {{ petition.description }}.</p>
+              <p class="card-text">Destinatario: {{ petition.destinatario }}</p>
+
+            </div>
+
+          </div>
+        </div>
+    </div>
+</div>
