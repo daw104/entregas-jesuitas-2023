@@ -8,6 +8,8 @@ import { AfterLoginService } from './services/after-login.service';
 import { BeforeLoginService } from './services/before-login.service';
 import { PeticionComponent } from './components/peticion/peticion.component';
 import { ListadoPeticionesComponent } from './components/listado-peticiones/listado-peticiones.component';
+import { MisPeticionesComponent } from './components/mis-peticiones/mis-peticiones.component';
+import { ActualizarMisPeticionesComponent } from './components/actualizar-mis-peticiones/actualizar-mis-peticiones.component';
 
 
 
@@ -42,6 +44,18 @@ const appRoutes: Routes = [
   {
     path: 'all-peticiones',
     component: ListadoPeticionesComponent
+  },
+
+  {
+    path: 'mis-peticiones',
+    component: MisPeticionesComponent,
+    canActivate : [AfterLoginService]
+  },
+
+  {
+    path: 'update/:id',
+    component: ActualizarMisPeticionesComponent,
+    canActivate : [AfterLoginService]
   },
 
 ]

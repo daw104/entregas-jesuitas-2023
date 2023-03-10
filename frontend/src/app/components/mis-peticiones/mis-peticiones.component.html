@@ -1,0 +1,36 @@
+<h2 class="text-center">Estas son tus peticiones {{ user.name }}</h2>
+
+
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">ID Usuario</th>
+      <th scope="col">Titulo</th>
+      <th scope="col">Descripcion</th>
+      <th scope="col">Destinatario</th>
+      <th *ngIf="user.usertype == 1"  scope="col">Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let petition of MiPeticion">
+      <th scope="row">{{ petition.id }}</th>
+      <td>{{ petition.user_id }}</td>
+      <td>{{ petition.title }}</td>
+      <td>{{ petition.description }}</td>
+      <td>{{ petition.destinatario }}</td>
+      <td *ngIf="user.usertype == 1">
+
+        <button class="btn btn-danger"  *ngIf="user.usertype == 1"  (click)="deleteData(petition.id)">
+          Eliminar
+        </button>
+
+        <button class="btn btn-info" *ngIf="user.usertype == 1"  routerLink="/update/{{ petition.id }}">
+          Actualizar
+        </button>
+
+      </td>
+    </tr>
+  </tbody>
+</table>

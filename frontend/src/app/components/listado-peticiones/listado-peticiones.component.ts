@@ -37,7 +37,6 @@ allPeticiones(): void{
     // const resp: any = res;
     this.Peticion = res;
     console.log(res);
-
   });
 }
 

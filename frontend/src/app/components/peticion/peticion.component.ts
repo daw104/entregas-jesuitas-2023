@@ -64,7 +64,7 @@ constructor(
     .subscribe(res =>{
       const resp: any = res;
       this.auth.setUser(resp.user);
-      this.router.navigate(['/all-peticiones']),
+      this.router.navigate(['/mis-peticiones']),
       console.log(resp);
 
     },

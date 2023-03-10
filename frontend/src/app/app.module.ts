@@ -11,6 +11,9 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { PeticionComponent } from './components/peticion/peticion.component';
 import { ListadoPeticionesComponent } from './components/listado-peticiones/listado-peticiones.component';
 import { HomeComponent } from './components/home/home.component';
+import { MisPeticionesComponent } from './components/mis-peticiones/mis-peticiones.component';
+import { ObjToArrayPipe } from './objToArray.pipe';
+import { ActualizarMisPeticionesComponent } from "./components/actualizar-mis-peticiones/actualizar-mis-peticiones.component";
 
 
 
@@ -26,7 +29,9 @@ import { HomeComponent } from './components/home/home.component';
     PeticionComponent,
     ListadoPeticionesComponent,
     HomeComponent,
-
+    MisPeticionesComponent,
+    ObjToArrayPipe,
+    ActualizarMisPeticionesComponent
 
 
   ],
@@ -37,7 +42,9 @@ import { HomeComponent } from './components/home/home.component';
     FormsModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [
+
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

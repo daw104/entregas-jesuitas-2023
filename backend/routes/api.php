@@ -51,6 +51,7 @@ Route::controller(CategoryController::class)->group(function(){
 
 
 Route::controller(PetitionController::class)->group(function(){
+    Route::get('get/{id}', 'getById');
     Route::post('store/peticion', 'store');
     Route::get('mispeticiones', 'listMine');
     Route::delete('petition/{id}', 'destroy');

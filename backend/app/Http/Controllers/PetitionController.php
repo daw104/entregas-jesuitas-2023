@@ -124,8 +124,10 @@ class PetitionController extends Controller{
         //parent::index();
         $user = Auth::user();
         $id = Auth::user()->id;;
-        $peticiones = Petition::all()->where('user_id', $id);
-        return $peticiones;
+        $peticiones = Petition::where('user_id', $id)->get()->toArray();
+       /* return $peticiones;*/
+        return response()->json($peticiones, 200);
+        return response()->json($peticiones, 200);
 
         }
 
@@ -151,13 +153,21 @@ class PetitionController extends Controller{
         return $peticion;
     }
 
-
+//        UPDATE
         public function update(Request $request, $id){
         $peticion = Petition::findOrFail($id);
         $peticion->update($request->all());
         $peticion->save();
         return response()->json(['message' => 'Esta es la peticion modificada', 'data' => $peticion], 200);
     }
+
+//    GET
+    public function getById($id){
+        $peticion = Petition::findOrFail($id);
+        return response()->json($peticion, 200);
+    }
+
+
 
 
      /**
