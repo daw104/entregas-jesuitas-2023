@@ -20,6 +20,8 @@ export class ProfileComponent implements OnInit {
   async ngOnInit(): Promise<void> {
     this.user = this.auth.getUser();
     this.user ? '' : this.user = await this.auth.getMe().toPromise();
+    console.log(this.user);
+    
   }
 
 }

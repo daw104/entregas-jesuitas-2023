@@ -10,7 +10,7 @@ import { PeticionComponent } from './components/peticion/peticion.component';
 import { ListadoPeticionesComponent } from './components/listado-peticiones/listado-peticiones.component';
 import { MisPeticionesComponent } from './components/mis-peticiones/mis-peticiones.component';
 import { ActualizarMisPeticionesComponent } from './components/actualizar-mis-peticiones/actualizar-mis-peticiones.component';
-
+import { AdminPeticionesComponent } from './components/admin-peticiones/admin-peticiones.component';
 
 
 const appRoutes: Routes = [
@@ -51,6 +51,14 @@ const appRoutes: Routes = [
     component: MisPeticionesComponent,
     canActivate : [AfterLoginService]
   },
+
+  {
+    path: 'admin-peticiones',
+    component: AdminPeticionesComponent,
+    canActivate : [AfterLoginService]
+  },
+
+
 
   {
     path: 'update/:id',

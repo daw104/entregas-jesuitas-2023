@@ -14,6 +14,7 @@ import { HomeComponent } from './components/home/home.component';
 import { MisPeticionesComponent } from './components/mis-peticiones/mis-peticiones.component';
 import { ObjToArrayPipe } from './objToArray.pipe';
 import { ActualizarMisPeticionesComponent } from "./components/actualizar-mis-peticiones/actualizar-mis-peticiones.component";
+import { AdminPeticionesComponent } from './components/admin-peticiones/admin-peticiones.component';
 
 
 
@@ -31,7 +32,8 @@ import { ActualizarMisPeticionesComponent } from "./components/actualizar-mis-pe
     HomeComponent,
     MisPeticionesComponent,
     ObjToArrayPipe,
-    ActualizarMisPeticionesComponent
+    ActualizarMisPeticionesComponent,
+    AdminPeticionesComponent
 
 
   ],
