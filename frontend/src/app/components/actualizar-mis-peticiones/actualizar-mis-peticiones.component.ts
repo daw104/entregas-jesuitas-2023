@@ -76,7 +76,7 @@ export class ActualizarMisPeticionesComponent implements OnInit {
       .put('http://127.0.0.1:8000/api/petitionUpdate/' + this.id, body, httpOptions)
       .subscribe((res) => {
         console.log(res);
-        this.router.navigateByUrl('/mis-peticiones');
+        this.router.navigateByUrl('/admin-peticiones');
       });
   }
 }

@@ -1,7 +1,7 @@
 <h2 class="text-center">Estas son tus peticiones {{ user.name }}</h2>
 
 <div>
-  <a class="btn btn-outline-warning" routerLink="/admin-peticiones">Todas las peticiones</a>
+  <a *ngIf="user.usertype == 1" class="btn btn-outline-warning" routerLink="/admin-peticiones">Todas las peticiones</a>
 </div>
 
 <table class="table">
@@ -12,7 +12,6 @@
       <th scope="col">Titulo</th>
       <th scope="col">Descripcion</th>
       <th scope="col">Destinatario</th>
-      <th *ngIf="user.usertype == 1"  scope="col">Acciones</th>
     </tr>
   </thead>
   <tbody>
@@ -22,17 +21,7 @@
       <td>{{ petition.title }}</td>
       <td>{{ petition.description }}</td>
       <td>{{ petition.destinatario }}</td>
-      <td *ngIf="user.usertype == 1">
-
-        <button class="btn btn-danger"  *ngIf="user.usertype == 1"  (click)="deleteData(petition.id)">
-          Eliminar
-        </button>
-
-        <button class="btn btn-info" *ngIf="user.usertype == 1"  routerLink="/update/{{ petition.id }}">
-          Actualizar
-        </button>
-
-      </td>
+    
     </tr>
   </tbody>
 </table>
