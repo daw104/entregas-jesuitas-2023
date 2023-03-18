@@ -148,17 +148,28 @@ class PetitionController extends Controller{
     */
     //Eliminar peticion
         public function destroy(Request $request, $id){
-        $peticion = Petition::findOrFail($id);
-        $peticion->delete();
-        return $peticion;
+       $userType = Auth::user()->usertype();
+       if($userType == 1){
+           $peticion = Petition::findOrFail($id);
+           $peticion->delete();
+           return $peticion;
+       }else{
+           return response()->json(['message' => 'No estas autorizado para eliminar la peticion'], 403);
+       }
+
     }
 
 //        UPDATE
         public function update(Request $request, $id){
-        $peticion = Petition::findOrFail($id);
-        $peticion->update($request->all());
-        $peticion->save();
-        return response()->json(['message' => 'Esta es la peticion modificada', 'data' => $peticion], 200);
+            $userType = Auth::user()->usertype();
+            if($userType == 1){
+                $peticion = Petition::findOrFail($id);
+                $peticion->update($request->all());
+                $peticion->save();
+                return response()->json(['message' => 'Esta es la peticion modificada', 'data' => $peticion], 200);
+            }else{
+                return response()->json(['message' => 'No estas autorizado para actualizar la peticion'], 403);
+            }
     }
 
 //    GET

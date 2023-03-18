@@ -51,28 +51,7 @@ export class MisPeticionesComponent implements OnInit {
 
   }
 
-  //eliminar peticion
-  deleteData(id:any){
-    const token = this.token.get();
-    console.log(token);
-    const httpOptions = {headers:new HttpHeaders({
-      Authorization:`Bearer ${token}`
-    })}
-    this.http.delete('http://localhost:8000/api/petition/' + id, httpOptions )
-    .subscribe(res=>{
-      this.MiPeticion = res;
-      alert(`Eliminaste la Peticion: ${this.MiPeticion.title}`);
 
-      // recorremos nuestras peticiones para poder eliminarle del array del front y asi poder recargar la pagina sin la peticion
-      for (let i = 0; i <  this.MiPeticion.length; i++) {
-        if (this.MiPeticion[i]==this.MiPeticion) {
-            this.MiPeticion[i].pop();
-        }
-      }
-      this.MisPeticiones();
-      console.log(res);
-    });
-  }
 
 
 }
