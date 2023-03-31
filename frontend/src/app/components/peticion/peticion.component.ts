@@ -18,6 +18,9 @@ export class PeticionComponent implements OnInit {
   //creamos actualUser
   user!: any;
 
+  selectedImage!: any;
+
+
 constructor(
   private formBuilder: FormBuilder,
   private http: HttpClient,
@@ -43,38 +46,44 @@ constructor(
     this.user ? '' : this.user = await this.auth.getMe().toPromise();
   }
 
-  onSubmit(){
+  submitPeticion(){
+    const formData = new FormData();
+      const values = this.form.getRawValue();
+      formData.append('user_id', values.user_id);
+      formData.append('title', values.title);
+      formData.append('category_id', values.category_id);
+      formData.append('description', values.description);
+      formData.append('destinatario', values.destinatario);
+      formData.append('file', this.selectedImage);
+
+      const token = this.token.get();
+      const httpOptions = {headers:new HttpHeaders({
+        Authorization:`Bearer ${token}`,
+      })}
+
+      httpOptions.headers.append('Content-Type', 'multipart/form-data'),
+      httpOptions.headers.append('Accept', 'application/json'),
+
+       console.log(this.form.getRawValue());
+      this.http.post('http://localhost:8000/api/store/peticion', formData, httpOptions )
+      .subscribe(res =>{
+        const resp: any = res;
+        this.auth.setUser(resp.user);
+        this.router.navigate(['/mis-peticiones']),
+        console.log(resp);
+
+      },
+        (err)=>console.log(err)
+
+      );
 
   }
 
-  submitPeticion(): void{
-   const form = this.form.getRawValue();
-    if(form.user_id == '' || form.title == '' || form.description == '' || form.description == '' || form.destinatario == '' || form.category_id == ''){
-      alert("Debe completar todos los campos");
-      return;
-    }
 
-    const token = this.token.get();
-    const httpOptions = {headers:new HttpHeaders({
-      Authorization:`Bearer ${token}`
-    })}
-
-     console.log(this.form.getRawValue());
-    this.http.post('http://localhost:8000/api/store/peticion',this.form.getRawValue(), httpOptions  )
-    .subscribe(res =>{
-      const resp: any = res;
-      this.auth.setUser(resp.user);
-      this.router.navigate(['/mis-peticiones']),
-      console.log(resp);
-
-    },
-      (err)=>console.log(err)
-
-    );
-  }
-
-
-
+// ** Evento para seleccionar las imagenes
+onSelectImage(event: any) {
+  this.selectedImage = event.target.files[0];
+}
 
 
 }

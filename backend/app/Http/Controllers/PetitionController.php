@@ -69,7 +69,7 @@ class PetitionController extends Controller{
         $peticion->category()->associate($categoria);
         $peticion->firmantes = 0;
         $peticion->estado = 'pendiente';
-        $peticion->image = 'public/peticionesimgs/' . $input['file'];
+        $peticion->image = 'peticionesimgs/' . $input['file'];
         $peticion->save();
 
 

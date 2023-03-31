@@ -8,6 +8,7 @@
   <thead>
     <tr>
       <th scope="col">#</th>
+      <th scope="col">Imagen</th>
       <th scope="col">ID Usuario</th>
       <th scope="col">Titulo</th>
       <th scope="col">Descripcion</th>
@@ -17,11 +18,12 @@
   <tbody>
     <tr *ngFor="let petition of MiPeticion">
       <th scope="row">{{ petition.id }}</th>
+      <td><img src="http://localhost:8000/{{petition.image}}" class="card-img-top" alt="..." style="height: 50px; width: 50px;"></td>
       <td>{{ petition.user_id }}</td>
       <td>{{ petition.title }}</td>
       <td>{{ petition.description }}</td>
       <td>{{ petition.destinatario }}</td>
-    
+
     </tr>
   </tbody>
 </table>
